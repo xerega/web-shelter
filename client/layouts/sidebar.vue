@@ -24,6 +24,7 @@
       </div>
       <div
         class="mt-auto flex max-w-fit cursor-pointer items-center gap-2 p-4 font-bold text-red-500 duration-100"
+        @click="signOut"
       >
         <Icon name="tabler:logout" class="h-5 w-5" />
         <p>Sign out</p>
@@ -34,9 +35,19 @@
 </template>
 
 <script lang="ts" setup>
+import { useUserStore } from "~/stores/user";
+
 const routeName = useState("route", () =>
   useRoute().name?.toString().toLowerCase(),
 );
+
+const userStore = useUserStore();
+
+const signOut = () => {
+  userStore.signOut();
+
+  navigateTo("/auth");
+};
 
 const menus = [
   {
