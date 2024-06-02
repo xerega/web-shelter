@@ -3,6 +3,7 @@ export const useTheme = () => {
 
   onMounted(() => {
     enabled.value = localStorage.getItem("webshelter-theme") === "dark";
+    setTheme();
   });
 
   const toggleTheme = () => {
