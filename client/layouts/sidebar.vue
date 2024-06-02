@@ -41,6 +41,8 @@ const routeName = useState("route", () =>
   useRoute().name?.toString().toLowerCase(),
 );
 
+onMounted(() => (routeName.value = useRoute().name?.toString().toLowerCase()));
+
 const userStore = useUserStore();
 
 const signOut = () => {

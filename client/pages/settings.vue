@@ -31,6 +31,7 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: "sidebar",
+  middleware: ["auth"],
 });
 
 const { enabled, toggleTheme } = useTheme();
