@@ -36,11 +36,11 @@ export class AuthService {
 
     const user = await this.usersRepository.findOneBy({ email });
 
-    const { password: userPassword, ...other } = user;
-
     if (!user) {
       throw new NotFoundException("User with such email doesn't exist");
     }
+
+    const { password: userPassword, ...other } = user;
 
     const doesPasswordsMatch = await bcrypt.compare(password, userPassword);
 
