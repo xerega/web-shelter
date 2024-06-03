@@ -11,7 +11,7 @@ export const useUserStore = defineStore("user", {
     async signUp(email: string, username: string, password: string) {
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_API_BASE_URL}:8080/auth/sign-up`,
+          `${import.meta.env.VITE_BACKEND_API_BASE_URL}/auth/sign-up`,
           {
             email,
             username,
@@ -28,7 +28,7 @@ export const useUserStore = defineStore("user", {
     async signIn(email: string, password: string) {
       try {
         const response = await axios.post(
-          `${import.meta.env.VITE_BACKEND_API_BASE_URL}:8080/auth/sign-in`,
+          `${import.meta.env.VITE_BACKEND_API_BASE_URL}/auth/sign-in`,
           {
             email,
             password,
